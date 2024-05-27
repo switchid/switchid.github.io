@@ -1,0 +1,53 @@
+#our-space {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    animation: blink 1.5s infinite alternate;
+}
+
+.star-fall {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    animation: fall linear infinite;
+}
+
+.star-fall::before{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 4px;
+    top:-70px;
+    left: -30px;
+    background: linear-gradient(to right, var(--tail-color), transparent);
+    transform: translate(0%, 0%) rotate(-45deg);
+    transform-origin: right;
+    pointer-events: none; 
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        transform: translateY(100vh) translateX(-40vw);
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
